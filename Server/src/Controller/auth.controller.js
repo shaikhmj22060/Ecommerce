@@ -18,7 +18,7 @@ export const Register = async (req, res) => {
     }
     const emailExist = await User.findOne({ email });
     if (emailExist) {
-      return res.status(400).json({ msg: "Email already exists" });
+      return res.status(409).json({ msg: "Email already exists" });
     }
     if (password.length < 6 || password.length > 16) {
       return res.status(400).json({
@@ -44,6 +44,7 @@ export const Register = async (req, res) => {
         name: user.name,
         username: user.username,
         email: user.email,
+        role: user.Role,
       },
     });
   } catch (error) {
@@ -58,7 +59,7 @@ export const Login = async (req, res) => {
     if (LoggedIn) {
       const decode = verifyToken(LoggedIn);
 
-      if (decode && decode.id) {
+      if (decode && decode.id && decode.role == "User") {
         return res.status(400).json({ msg: "Already Logged in" });
       }
     }
@@ -81,7 +82,7 @@ export const Login = async (req, res) => {
         .status(400)
         .json({ msg: "Invalid Email/Usrname or  Password" });
     }
-    const token = generateToken({ id: user._id });
+    const token = generateToken({ id: user._id, role: user.Role });
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,

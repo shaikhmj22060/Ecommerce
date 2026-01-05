@@ -7,5 +7,9 @@ import jwt from "jsonwebtoken";
  */
 
 export const generateToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" });
+  try {
+    return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "7d" });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
 };

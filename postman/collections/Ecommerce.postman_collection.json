@@ -1,0 +1,200 @@
+{
+  "info": {
+    "_postman_id": "8b0a8a3c-f547-4ad1-89b1-a0b99db97302",
+    "name": "Ecommerce",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "admin_register",
+          "id": "b57cfa81-552d-42af-86d8-3a7869d6fa59",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"admin\",\r\n    \"name\":\"admin\",\r\n    \"email\":\"admin1@gmail.com\",\r\n    \"password\":\"1567599625\",\r\n    \"secret\":\"admin_secret\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{PORT}}api/admin/register",
+              "host": [
+                "{{PORT}}api"
+              ],
+              "path": [
+                "admin",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "admin_login",
+          "id": "d457c614-0280-4b66-810b-ffb542db8ce6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"mj\",\r\n    \"password\":\"1567599625\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{PORT}}api/admin/login",
+              "host": [
+                "{{PORT}}api"
+              ],
+              "path": [
+                "admin",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "fe6832e2-3d34-48d2-a242-93092ee5cc3c"
+    },
+    {
+      "name": "test",
+      "id": "3848d247-2388-4e8e-9f02-6aebdb079ff1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{PORT}}api/",
+          "host": [
+            "{{PORT}}api"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "id": "2ac3d236-86d7-45a8-81a1-4b5c52fe00f1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"mj\",\r\n    \"name\":\"jawwad\",\r\n    \"email\":\"mj@gmail.com\",\r\n    \"password\":\"1567599625\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{PORT}}api/auth/register",
+          "host": [
+            "{{PORT}}api"
+          ],
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "id": "2270f863-06d7-45c1-97b0-1fd32ab9e45d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"emailOrusername\":\"mj@gmail.com\",\r\n    \"password\":\"1567599625\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{PORT}}api/auth/login",
+          "host": [
+            "{{PORT}}api"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Logout",
+      "id": "8185cb38-3fc9-4607-bd8d-dd603e5d7cd9",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{PORT}}api/auth/logout",
+          "host": [
+            "{{PORT}}api"
+          ],
+          "path": [
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
