@@ -44,7 +44,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"username\":\"mj\",\r\n    \"password\":\"1567599625\"\r\n}",
+              "raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"1567599625\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -59,6 +59,26 @@
               "path": [
                 "admin",
                 "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cloudinary/signature",
+          "id": "a3b755bc-b87f-444b-908e-b13a6264da2e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{PORT}}api/admin/cloudinary/signature",
+              "host": [
+                "{{PORT}}api"
+              ],
+              "path": [
+                "admin",
+                "cloudinary",
+                "signature"
               ]
             }
           },
@@ -184,12 +204,11 @@
           }
         },
         "url": {
-          "raw": "{{PORT}}api/auth/logout",
+          "raw": "{{PORT}}api/logout",
           "host": [
             "{{PORT}}api"
           ],
           "path": [
-            "auth",
             "logout"
           ]
         }

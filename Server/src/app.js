@@ -9,8 +9,8 @@ dotenv.config();
 connectDB();
 const app = express();
 
-app.use(json());
 app.use(cors());
+app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api", router);
