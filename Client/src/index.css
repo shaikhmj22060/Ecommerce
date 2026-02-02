@@ -1,1 +1,34 @@
 @import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap"); */
+
+@font-face {
+  font-family: "TikTok Sans";
+  src: url("/Fonts/TitTok.ttf");
+  font-weight: 100 900; /* variable range */
+  font-stretch: 75% 125%; /* wdth axis */
+  font-style: oblique 0deg 10deg; /* slnt axis */
+  font-display: swap;
+}
+body {
+  font-family: "TikTok Sans";
+}
+
+@theme inline {
+  --color-primary: 37 99 235;
+  --color-primary-hover: 29 78 216;
+
+  --color-secondary: 245 158 11;
+
+  --color-success: 22 163 74;
+  --color-danger: 220 38 38;
+
+  --color-text-primary: 17 24 39;
+  --color-text-secondary: 75 85 99;
+  --color-text-muted: 156 163 175;
+
+  --color-bg-main: 249 250 251;
+  --color-bg-card: 255 255 255;
+
+  --color-border: 229 231 235;
+  --font-TikTok: "TikTok Sans";
+}

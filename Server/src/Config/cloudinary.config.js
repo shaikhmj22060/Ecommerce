@@ -25,7 +25,7 @@ export const cloudinarySignature = (req, res) => {
     cloudName: process.env.CLOUD_NAME,
     folder,
   };
-  console.log(signatureData);
+
   return res.status(200).json({
     msg: "signature generated",
     signatureData,

@@ -83,6 +83,34 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "getProducts",
+          "id": "e5c713cb-8a58-48af-8088-00cd83a23aee",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{PORT}}api/admin/getProducts",
+              "host": [
+                "{{PORT}}api"
+              ],
+              "path": [
+                "admin",
+                "getProducts"
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "fe6832e2-3d34-48d2-a242-93092ee5cc3c"

@@ -130,16 +130,16 @@ export const Index = () => {
         <div className="w-fit hover:scale-99 cursor-pointer transition-all  m-4 bg-neutral-100 shadow-xl drop-shadow-xs p-3 rounded-4xl">
           <div>
             <img
-              src={Res.image.url}
-              alt=""
+              src={Res.image?.url}
+              alt={Res.name}
               className="w-48 rounded-3xl shadow"
             />
           </div>
-          <div className=" flex items-center justify-between" >
+          <div className=" flex items-center justify-between">
             <h1 className="text-2xl font-semibold">{Res.name}</h1>
             <h1 className="text-md">₹{Res.price}/-</h1>
           </div>
-            <h1 className="text-sm">{Res.desc}</h1>
+          <h1 className="text-sm">{Res.desc}</h1>
         </div>
       )}
     </>
