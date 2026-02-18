@@ -1,0 +1,75 @@
+{
+  "info": {
+    "_postman_id": "cb2c2aa4-5f4f-4962-b9af-7a18c0362e84",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "login",
+      "id": "6345e3af-15af-469a-bfd1-431c8f0730da",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\":\"shaikhm.ja.z@gmail.com\",\r\n    \"password\": \"1567599625\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{PORT}}auth/login",
+          "host": [
+            "{{PORT}}auth"
+          ],
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getMe",
+      "id": "b1b04dc7-4846-448c-a36d-dad997ea1770",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getEvents",
+      "id": "9e758bc1-563f-42cd-8c8c-e68d88c2b5d8",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{EVENT}}events/createEvent",
+          "host": [
+            "{{EVENT}}events"
+          ],
+          "path": [
+            "createEvent"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

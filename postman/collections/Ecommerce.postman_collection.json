@@ -111,6 +111,35 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "deleteProduct",
+          "id": "a48c42c7-a442-4041-bd3c-99309a4fabdd",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{PORT}}api/admin/delete/698388cfc6ef7a234062f009",
+              "host": [
+                "{{PORT}}api"
+              ],
+              "path": [
+                "admin",
+                "delete",
+                "698388cfc6ef7a234062f009"
+              ]
+            }
+          },
+          "response": []
         }
       ],
       "id": "fe6832e2-3d34-48d2-a242-93092ee5cc3c"
