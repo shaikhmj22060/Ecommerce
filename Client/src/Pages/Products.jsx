@@ -1,12 +1,24 @@
-import React from "react";
 import { Edit2, Trash2 } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deletProduct } from "../api/Api";
+import {
+  error as setError,
+  deleteProduct as deleteState,
+} from "../Redux/Products";
 export const Products = () => {
-  const { listProducts, loading } = useSelector((state) => state.products);
-  console.log(listProducts);
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  const dispatch = useDispatch();
+  const { listProducts } = useSelector((state) => state.products);
+  console.log(listProducts)
+  const onDelete = async (id) => {
+    try {
+      console.log(id)
+      const res = await deletProduct(id);
+      console.log(res);
+      dispatch(deleteState(id)); //this function deletes product details from the global redux state
+    } catch (error) {
+      dispatch(setError(error.message));
+    }
+  };
   return (
     <div className="  w-full p-6 flex flex-col items-center">
       <div className="grid mb-8 grid-cols-3 gap-3 w-[60%] ">
@@ -21,6 +33,7 @@ export const Products = () => {
               imgSrc={item.image.url}
               price={item.price}
               desc={item.desc}
+              onClick={onDelete}
             />
           ))
         )}
@@ -29,7 +42,7 @@ export const Products = () => {
   );
 };
 
-const Cards = ({ title, desc, imgSrc, price, id }) => {
+const Cards = ({ title, desc, imgSrc, price, id, onClick }) => {
   return (
     <div className="bg-neutral-50  rounded-xl  overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] cursor-pointer hover:scale-99 transition-all line-clamp-2 ">
       <div className="aspect-square">
@@ -43,7 +56,7 @@ const Cards = ({ title, desc, imgSrc, price, id }) => {
       <div className="px-2.5 pt-1.5 pb-0.5 flex items-center justify-between">
         <h1 className="text-xl text-neutral-950 text-shadow-xs">{title}</h1>
         <div className="px-2 py-0.5  rounded-full  bg-neutral-300 shadow-2xl items-center justify-center flex">
-          <h3 className="text-sm text-neutral-800  ">{price}</h3>
+          <h3 className="text-sm text-neutral-800  ">${price}</h3>
         </div>
       </div>
       <div className="px-2.5 text-[13.5px]  text-neutral-700 font-sans   ">
@@ -56,7 +69,10 @@ const Cards = ({ title, desc, imgSrc, price, id }) => {
         >
           <Edit2 />
         </button>
-        <button className="px-2 cursor-pointer py-1 hover:bg-neutral-50 hover:text-neutral-800 transition-all duration-600 ease-in-out bg-red-700 rounded-md text-neutral-100">
+        <button
+          className="px-2 cursor-pointer py-1 hover:bg-neutral-50 hover:text-neutral-800 transition-all duration-600 ease-in-out bg-red-700 rounded-md text-neutral-100"
+          onClick={()=>onClick(id)}
+        >
           <Trash2 />
         </button>
       </div>

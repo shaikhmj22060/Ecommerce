@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { Index } from "./Pages";
+import { ProductForm } from "./Pages/ProductForm";
 import { Layout } from "./Layout";
 import { Products } from "./Pages/Products";
 
@@ -10,10 +10,14 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Index />,
+        element: <ProductForm />,
       },
       {
         path: "/Products",
+        element: <Products />,
+      },
+      {
+        path: "/updateProduct/",
         element: <Products />,
       },
     ],
