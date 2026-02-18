@@ -1,4 +1,5 @@
 import { Product } from "../../Models/Product.model.js";
+import { v2 as cloudinary } from "cloudinary";
 
 export const createProduct = async (req, res) => {
   try {
@@ -30,8 +31,22 @@ export const getProducts = async (req, res) => {
     const products = await Product.find();
     return res
       .status(200)
-      .json({ msg: `Found Product ${products.length}`, products  });
+      .json({ msg: `Found Product ${products.length}`, products });
   } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+export const deletProduct = async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log(id);
+    const product = await Product.findById(id).select("image.public_id");
+    await cloudinary.uploader.destroy(product.image.public_id);
+    await Product.findByIdAndDelete(id);
+
+    return res.status(200).json({ msg: "Data deleted" });
+  } catch (error) {
+    console.log(error.message);
     return res.status(500).json({ msg: error.message });
   }
 };
